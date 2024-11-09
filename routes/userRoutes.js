@@ -61,7 +61,7 @@ module.exports = (connection) => {
 
                     res.json({
                         success: true,
-                        message: "Login successful",
+                        message: "Login successful!",
                         token
                     });
                 }
