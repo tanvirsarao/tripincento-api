@@ -271,5 +271,62 @@ module.exports = (connection) => {
       }
   });
 
+
+
+  
+  outer.get('/top-travelers', async (req, res) => {
+    try {
+        const query = `
+            SELECT 
+                u.id,
+                u.username,
+                u.first_name,
+                u.last_name,
+                SUM(t.distance_travelled) as total_distance
+            FROM users u
+            JOIN trips t ON u.id = t.user_id
+            WHERE t.status = 'completed'
+            GROUP BY u.id, u.username, u.first_name, u.last_name
+            ORDER BY total_distance DESC
+            LIMIT 5
+        `;
+
+        connection.query(query, (error, results) => {
+            if (error) {
+                console.error('Database error:', error);
+                return res.status(500).json({
+                    success: false,
+                    message: "Internal server error"
+                });
+            }
+
+            // Format the results
+            const formattedResults = results.map(user => ({
+                id: user.id,
+                username: user.username,
+                first_name: user.first_name,
+                last_name: user.last_name,
+                total_distance: parseFloat(user.total_distance) || 0,
+                formatted_distance: `${parseFloat(user.total_distance).toFixed(2)} km`
+            }));
+
+            res.json({
+                success: true,
+                message: "Top travelers retrieved successfully",
+                travelers: formattedResults
+            });
+        });
+
+    } catch (error) {
+        console.error('Top travelers error:', error);
+        res.status(500).json({
+            success: false,
+            message: "Internal server error"
+        });
+    }
+});
+
+
+
   return router;
 };
