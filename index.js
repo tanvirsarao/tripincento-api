@@ -2,10 +2,19 @@
 require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
+const corsMiddleware = require('./middleware/cors');
 
 const app = express();
 
-// Add middleware to parse JSON body
+// Apply CORS middleware first
+app.use(corsMiddleware());
+
+// Handle OPTIONS requests
+app.options('*', (req, res) => {
+    res.status(204).send();
+});
+
+// Parse JSON bodies
 app.use(express.json());
 
 // Database connection
