@@ -75,58 +75,56 @@ module.exports = (connection) => {
        }
    });
 
-   // Add new trip with optional parameters
+   // Modified add trip endpoint with required fields
    router.post('/add', verifyToken, (req, res) => {
        try {
-           const userId = req.user.user_id; // Get user_id from token
+           const userId = req.user.user_id;
            const {
                fleet_id,
-               start_latitude,
-               start_longitude,
-               start_address,
                start_time,
-               end_latitude,
-               end_longitude,
-               end_address,
                end_time,
                distance_travelled,
                duration_minutes,
                status
            } = req.body;
 
-           // Prepare query and values
+           // Validate required fields
+           if (!fleet_id || !start_time || !end_time || !distance_travelled || !duration_minutes || !status) {
+               return res.status(400).json({
+                   success: false,
+                   message: "Required fields: fleet_id, start_time, end_time, distance_travelled, duration_minutes, and status"
+               });
+           }
+
+           // Validate status value
+           const validStatuses = ['in_progress', 'completed', 'cancelled'];
+           if (!validStatuses.includes(status)) {
+               return res.status(400).json({
+                   success: false,
+                   message: "Status must be one of: in_progress, completed, cancelled"
+               });
+           }
+
            const query = `
                INSERT INTO trips (
                    user_id,
                    fleet_id,
-                   start_latitude,
-                   start_longitude,
-                   start_address,
                    start_time,
-                   end_latitude,
-                   end_longitude,
-                   end_address,
                    end_time,
                    distance_travelled,
                    duration_minutes,
                    status
-               ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+               ) VALUES (?, ?, ?, ?, ?, ?, ?)
            `;
 
            const values = [
                userId,
-               fleet_id || null,
-               start_latitude || null,
-               start_longitude || null,
-               start_address || null,
-               start_time || null,
-               end_latitude || null,
-               end_longitude || null,
-               end_address || null,
-               end_time || null,
-               distance_travelled || null,
-               duration_minutes || null,
-               status || 'in_progress'
+               fleet_id,
+               start_time,
+               end_time,
+               distance_travelled,
+               duration_minutes,
+               status
            ];
 
            connection.query(query, values, (error, results) => {
