@@ -273,8 +273,8 @@ module.exports = (connection) => {
 
 
 
-  
-  outer.get('/top-travelers', async (req, res) => {
+
+  router.get('/top-travelers', async (req, res) => {
     try {
         const query = `
             SELECT 
