@@ -8,15 +8,18 @@ The "Flower City" is becoming grey and unsustainable day by day. Recent Carbon R
 
 ## Technology Stack
 
-Front-End: HTML, CSS, JS
-Back-End: Node, Express, MySQL
-Data Analysis: Python, Matplotlib, Pandas, NumPy Google Maps API
+- Front-End: HTML, CSS, JS
+- Back-End: Node, Express, MySQL
+- Data Analysis: Python, Matplotlib, Pandas, NumPy, Google Maps API
 
-![mainPage](https://github.com/user-attachments/assets/adcc5b23-9188-4386-93f4-f78d5f893e58)
-![login](https://github.com/user-attachments/assets/696e64c1-e423-49ba-a631-319495cac344)
-![profile](https://github.com/user-attachments/assets/31c7d6e1-c1e9-432a-9c45-d59925786f57)
-![leaderboards](https://github.com/user-attachments/assets/3beb5c0e-f08c-4a9e-bb6c-e71f719b5e67)
-![dataAnalysis](https://github.com/user-attachments/assets/9575c93b-61dc-4d37-864a-91d8b29b3d18)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/adcc5b23-9188-4386-93f4-f78d5f893e58" alt="Main Page" width="600"/>
+  <img src="https://github.com/user-attachments/assets/696e64c1-e423-49ba-a631-319495cac344" alt="Login Page" width="600"/>
+  <img src="https://github.com/user-attachments/assets/31c7d6e1-c1e9-432a-9c45-d59925786f57" alt="Profile Page" width="600"/>
+  <img src="https://github.com/user-attachments/assets/3beb5c0e-f08c-4a9e-bb6c-e71f719b5e67" alt="Leaderboards Page" width="600"/>
+  <img src="https://github.com/user-attachments/assets/9575c93b-61dc-4d37-864a-91d8b29b3d18" alt="Data Analysis Page" width="600"/>
+</div>
+
 
 ## Getting Started
 
