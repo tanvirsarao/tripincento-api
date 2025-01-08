@@ -1,6 +1,22 @@
-# Tripincento Web API
+# TripIncento Web API
 
-Tripincento is a Web API that is the backend for a travel-centric hackathon project. This API allows users to manage their travel data, including tracking trips, logging in and signing up, and viewing user details. Below you'll find a detailed guide to using this API, with references to the specific code implementations in the project.
+TripIncento is a Web API that is the backend for a travel-centric hackathon project. This API allows users to manage their travel data, including tracking trips, logging in and signing up, and viewing user details. Below you'll find a detailed guide to using this API, with references to the specific code implementations in the project.
+
+## About TripIncento
+
+The "Flower City" is becoming grey and unsustainable day by day. Recent Carbon Reports from Brampton Today indicate 7 MTCO in carbon emissions, with 60% of all emissions coming from transportation. Furthermore, poor preparation has led to overcrowding, delays, and a poor, irritating, and undesirable transit experience. So, a friend and I built TripIncento, Brampton-focused rewards to citizens helping create a greener future for Brampton.
+
+## Technology Stack
+
+Front-End: HTML, CSS, JS
+Back-End: Node, Express, MySQL
+Data Analysis: Python, Matplotlib, Pandas, NumPy Google Maps API
+
+![mainPage](https://github.com/user-attachments/assets/adcc5b23-9188-4386-93f4-f78d5f893e58)
+![login](https://github.com/user-attachments/assets/696e64c1-e423-49ba-a631-319495cac344)
+![profile](https://github.com/user-attachments/assets/31c7d6e1-c1e9-432a-9c45-d59925786f57)
+![leaderboards](https://github.com/user-attachments/assets/3beb5c0e-f08c-4a9e-bb6c-e71f719b5e67)
+![dataAnalysis](https://github.com/user-attachments/assets/9575c93b-61dc-4d37-864a-91d8b29b3d18)
 
 ## Getting Started
 
